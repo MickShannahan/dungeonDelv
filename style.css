@@ -1,0 +1,72 @@
+:root{
+  --primary: black;
+  --secondary: rgb(201, 233, 150);
+}
+
+.font-pixel{
+  font-family: 'Press Start 2P', cursive;
+}
+
+
+.bg-primary{
+  background-color: var(--primary)!important;
+}
+
+.bg-secondary{
+  background-color: var(--secondary)!important;
+}
+
+body{
+  font-family: 'Ubuntu Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-grow: 1;
+  background-image: url('https://i.pinimg.com/originals/fc/96/42/fc9642b02ca644cff040c75cbe24698c.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+#monster-image{
+  min-height: 40vh;
+  min-width: 40vh;
+  background-image: url('http://pixeljoint.com/files/icons/full/gadnaxenemies.png');
+  background-size: 475%;
+  background-position: top -85px left 0px;
+}
+
+.health{
+  outline: 2px solid red;
+  display: flex;
+  width: inherit;
+  height: 2em;
+  position: relative;
+  /* overflow: hidden; */
+  border-radius: 5px;
+}
+
+.health-bar{
+  height: 2em;
+  position: absolute;
+  transition: all .1s linear;
+
+}
+
+
+
+.health-react{
+  height: inherit;
+  background: white;
+  transition: all .2s ease;
+  transition-delay: .2s;
+}
+
