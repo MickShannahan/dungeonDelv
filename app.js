@@ -56,6 +56,7 @@ function update(){
   let monsterHealthReactElm = document.getElementById('monster-health-react')
   monsterHealthElm.style.width = (monster.health/monster.maxHealth )*100 + '%'
   monsterHealthReactElm.style.width = (monster.health/monster.maxHealth )*100 + '%'
+  checkIfMonsterDead()
 }
 
 function attack(){
@@ -70,7 +71,6 @@ function attack(){
     window.alert('your whole party is dead')
   }
   monster.health -= attackPower
-  checkIfMonsterDead()
   update()
 }
 
