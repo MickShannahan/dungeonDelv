@@ -26,19 +26,23 @@ let party = {
 
 function update(){
   // update party
-  let heroElm = document.getElementById('party')
-  let heroHealthElm = document.getElementById('party-health')
-  let heroHealthReactElm = document.getElementById('party-health-react')
+  let partyElm = document.getElementById('party')
+  let partyHealthElm = document.getElementById('party-health')
+  let partyHealthReactElm = document.getElementById('party-health-react')
+  let attackButton = document.getElementById('attack-button')
+  partyElm.innerText = `fighter: ${party.fighter.health}| wizard: ${party.wizard.health}| cleric: ${party.cleric.health} `
   let partyHealth = party.fighter.health + party.wizard.health + party.cleric.health
+  let attackPower = (party.fighter.health > 0 ? party.fighter.damage : 0) + (party.wizard.health > 0 ? party.wizard.damage : 0) + (party.cleric.health > 0 ? party.cleric.damage : 0 )
+  attackButton.innerText = `attack ${attackPower} dmg`
   if (partyHealth > 100){
     let overHeal = partyHealth - 100
-    heroHealthElm.style.width = 100+ '%'
-    heroHealthReactElm.style.width = 100 + '%'
-    heroHealthElm.innerText = overHeal.toString()
+    partyHealthElm.style.width = 100+ '%'
+    partyHealthReactElm.style.width = 100 + '%'
+    partyHealthElm.innerText = overHeal.toString()
   } else {
-    heroHealthElm.style.width = partyHealth + '%'
-    heroHealthReactElm.style.width = partyHealth + '%'
-    heroHealthElm.innerText = ''
+    partyHealthElm.style.width = partyHealth + '%'
+    partyHealthReactElm.style.width = partyHealth + '%'
+    partyHealthElm.innerText = ''
   }
 
   // upadate gold
@@ -59,15 +63,15 @@ function attack(){
   for(let key in party){
     let hero = party[key]
     if(hero.health> 0){
-      attackPower += hero.damage * hero.level
+      attackPower += hero.damage
     }
   }
   if(attackPower == 0){
     window.alert('your whole party is dead')
   }
-monster.health -= attackPower
-checkIfMonsterDead()
-update()
+  monster.health -= attackPower
+  checkIfMonsterDead()
+  update()
 }
 
 function checkIfMonsterDead(){
@@ -85,7 +89,7 @@ function checkIfMonsterDead(){
 function healHero(hero){
   if(gold > 25){
     gold -= 25
-    party[hero].health += 10
+    party[hero].health += 15
     update()
   }
 }

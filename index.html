@@ -26,22 +26,22 @@
         <div class="row">
           <div class="col-12">
             <h4 class="text-center">Your Party</h4>
+            <p id="party" class="text-center">Your Party</p>
             <div class="health bg-primary">
               <div id="party-health-react" class=" health-react bg-light" style="width: 100%"></div>
               <div id="party-health" class="health-bar bg-danger" style="width: 100%"></div>
             </div>
           </div>
         </div>
-        <div class="row align-self-end">
-          <div class="col-12">Shop</div>
-          <div class="col-6 btn p3"><button class="btn bg-secondary btn-warning" onclick="healHero('fighter')">heal
+        <div class="row justify-content-around">
+          <div class="col-6 btn p3"><button class="btn bg-secondary btn-warning p-3" onclick="healHero('fighter')">heal
               fighter</button></div>
-          <div class="col-6 btn p3"><button class="btn bg-secondary btn-warning" onclick="healHero('wizard')">heal
+          <div class="col-6 btn p3"><button class="btn bg-secondary btn-warning p-3" onclick="healHero('wizard')">heal
               wizard</button></div>
-          <div class="col-6 btn p3"><button class="btn bg-secondary btn-warning" onclick="healHero('cleric')">heal
+          <div class="col-6 btn p3"><button class="btn bg-secondary btn-warning p-3" onclick="healHero('cleric')">heal
               cleric</button></div>
           <div class="col-12">Gold: <span id="gold">0</span></div>
-          <div class="col-12 btn btn-danger btn-block" onclick="attack()">attack</div>
+          <div id="attack-button" class="col-12 btn btn-danger btn-block" onclick="attack()">attack</div>
         </div>
       </div>
       <div class="col-md-6 bg-primary p-3 shadow">
