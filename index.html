@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+  <!-- NOTE style linked here don't forget! -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -22,41 +23,41 @@
   </header>
   <main class="container-fluid p-4">
     <div class="row bg-secondary w-100 gx-2">
+      <!-- PARTY CARD -->
       <div class="col-md-6 bg-light p-3 shadow">
         <div class="row">
           <div class="col-12">
             <h4 class="text-center">Your Party</h4>
-            <p id="party" class="text-center">Your Party</p>
-            <div class="health bg-primary">
-              <div id="party-health-react" class=" health-react bg-light" style="width: 100%"></div>
-              <div id="party-health" class="health-bar bg-danger" style="width: 100%"></div>
-            </div>
+            <!-- Your party is here, you just need  -->
+            <p class="text-center">
+              <span id="fighter" class="border border-bottom-dark p-1 mx-2">
+                Fighter:50
+              </span>
+              <span id="wizard" class="border border-bottom-dark p-1 mx-2">
+                Wizard:15
+              </span>
+              <span id="cleric" class="border border-bottom-dark p-1 mx-2">
+                Cleric:35
+              </span>
+            </p>
+
           </div>
         </div>
         <div class="row justify-content-around">
-          <div class="col-6 btn p3"><button class="btn bg-secondary btn-warning p-3" onclick="healHero('fighter')">heal
-              fighter</button></div>
-          <div class="col-6 btn p3"><button class="btn bg-secondary btn-warning p-3" onclick="healHero('wizard')">heal
-              wizard</button></div>
-          <div class="col-6 btn p3"><button class="btn bg-secondary btn-warning p-3" onclick="healHero('cleric')">heal
-              cleric</button></div>
-          <div class="col-12">Gold: <span id="gold">0</span></div>
-          <div id="attack-button" class="col-12 btn btn-danger btn-block" onclick="attack()">attack</div>
+          <!-- TODO ADD buttons for each party member to heal them, onclick to heal each hero -->
+          <div class="col-12">Gold: <span id="gold">0</span>
+          </div>
+          <!-- TODO ADD onclick for your party to attack the monster -->
+          <div id="attack-button" class="col-12 btn btn-danger btn-block">attack</div>
         </div>
       </div>
+
+      <!-- MONSTER CARD -->
       <div class="col-md-6 bg-primary p-3 shadow">
         <div class="row">
           <div class="col-12 ">
             <h4 id="monster" class="text-center text-light">Monster</h4>
-            <div class="health">
-              <div id="monster-health-react" class="health-react bg-light" style="width: 100%">
-                <div id="monster-health" class="health-bar bg-secondary" style="width: 100%"></div>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-12">
-            <div id="monster-image"></div>
+            <!-- Monster information goes here -->
           </div>
         </div>
       </div>
@@ -72,6 +73,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"></script>
+  <!-- NOTE js linked here don't forget! -->
   <script src="app.js"></script>
 </body>
 

@@ -7,7 +7,6 @@
   font-family: 'Press Start 2P', cursive;
 }
 
-
 .bg-primary{
   background-color: var(--primary)!important;
 }
@@ -36,37 +35,5 @@ main{
   background-size: cover;
 }
 
-#monster-image{
-  min-height: 40vh;
-  min-width: 40vh;
-  background-image: url('http://pixeljoint.com/files/icons/full/gadnaxenemies.png');
-  background-size: 475%;
-  background-position: top -85px left 0px;
-}
 
-.health{
-  outline: 2px solid red;
-  display: flex;
-  width: inherit;
-  height: 2em;
-  position: relative;
-  /* overflow: hidden; */
-  border-radius: 5px;
-}
-
-.health-bar{
-  height: 2em;
-  position: absolute;
-  transition: all .1s linear;
-
-}
-
-
-
-.health-react{
-  height: inherit;
-  background: white;
-  transition: all .2s ease;
-  transition-delay: .2s;
-}
 

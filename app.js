@@ -1,5 +1,5 @@
   let monster ={
-    name:'Turtle Monster',
+    name:'Goblin',
     level: 1,
     damage: 1,
     maxHealth:25,
@@ -24,90 +24,46 @@ let party = {
   }
 }
 
+// NOTE don't forget to call this function anytime the data changes
 function update(){
   // update party
-  let partyElm = document.getElementById('party')
-  let partyHealthElm = document.getElementById('party-health')
-  let partyHealthReactElm = document.getElementById('party-health-react')
-  let attackButton = document.getElementById('attack-button')
-  partyElm.innerText = `fighter: ${party.fighter.health}| wizard: ${party.wizard.health}| cleric: ${party.cleric.health} `
-  let partyHealth = party.fighter.health + party.wizard.health + party.cleric.health
-  let attackPower = (party.fighter.health > 0 ? party.fighter.damage : 0) + (party.wizard.health > 0 ? party.wizard.damage : 0) + (party.cleric.health > 0 ? party.cleric.damage : 0 )
-  attackButton.innerText = `attack ${attackPower} dmg`
-  if (partyHealth > 100){
-    let overHeal = partyHealth - 100
-    partyHealthElm.style.width = 100+ '%'
-    partyHealthReactElm.style.width = 100 + '%'
-    partyHealthElm.innerText = overHeal.toString()
-  } else {
-    partyHealthElm.style.width = partyHealth + '%'
-    partyHealthReactElm.style.width = partyHealth + '%'
-    partyHealthElm.innerText = ''
-  }
-
+  // TODO UPDATE Grab the party elements off the DOM and update them (you will want to at least display each party members health)
+ 
   // upadate gold
-  let goldElm = document.getElementById('gold')
-  goldElm.innerText = gold.toString()
-
+  // TODO UPDATE Grab the gold element of the DOM and update it
+ 
   // update monster
-  let monsterElm = document.getElementById('monster')
-  monsterElm.innerText = monster.name + ' lvl.' + monster.level
-  let monsterHealthElm = document.getElementById('monster-health')
-  let monsterHealthReactElm = document.getElementById('monster-health-react')
-  monsterHealthElm.style.width = (monster.health/monster.maxHealth )*100 + '%'
-  monsterHealthReactElm.style.width = (monster.health/monster.maxHealth )*100 + '%'
-  checkIfMonsterDead()
+  // TODO UPDATE Grab the monster element of the DOM and update it (monster name, level, remaining health)
 }
 
 function attack(){
-  let attackPower  = 0
-  for(let key in party){
-    let hero = party[key]
-    if(hero.health> 0){
-      attackPower += hero.damage
-    }
-  }
-  if(attackPower == 0){
-    window.alert('your whole party is dead')
-  }
-  monster.health -= attackPower
-  update()
+  // TODO iterate with a FOR IN LOOP over the party DICTIONARY and calculate the party's total attack power, then subtract that attack power from the monsters health (you might want to take into account if a party member is "unconscious" with and if statement)
+
+  // TODO check if the monster is dead after the damage has been dealt
 }
 
 function checkIfMonsterDead(){
-  if(monster.health <= 0){
-    gold += monster.gold
-    monster.level++
-    monster.maxHealth += monster.maxHealth/2
-    monster.damage += Math.round(monster.damage/2)
-    monster.gold += Math.round(monster.gold/2)
-    monster.health = monster.maxHealth
-    update()
-  }
+// TODO Check the monsters health and see if they are dead (health < 0)
+
+// TODO if dead, reward the party! make sure they get the gold the monster had at the time it died, they will need it.
+
+// TODO if dead, level the monster up! increase the monsters maxHealth, gold value and damage value 
+
+// TODO reset the monster so the party can fight it again (set it's health back to it's maxHealth).
 }
 
-function healHero(hero){
-  if(gold > 25){
-    gold -= 25
-    party[hero].health += 15
-    update()
-  }
+function healHero(className){
+  // TODO check if the user has enough gold to heal their party member (come up with how much that should cost)
+
+  // TODO if heal was purchased, target the party member from the party DICTIONARY and heal them (increase their health)
 }
 
-function hurtHero(){
-  for(let key in party){
-    let hero = party[key]
-    hero.health -=monster.damage
-    if(hero.health <= 0){
-      hero.health = 0
-    }
-  }
-  update()
+function hurtParty(){
+// TODOiterate with a FOR IN LOOP over the party DICTIONARY and hurt each member by the monsters damage value
 }
 
 function startInterval(){
-  let interval = setInterval(hurtHero, 5000)
+  // TODO create an interval that will run the "hurtParty" function every 5 seconds
 }
 
-startInterval()
-update()
+// TODO don't forget to run the functions you want to run when the page loads
