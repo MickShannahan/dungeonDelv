@@ -24,7 +24,7 @@ let party = {
   }
 }
 
-// NOTE don't forget to call this function anytime the data changes
+// NOTE don't forget to call this function anytime the data above changes
 function update(){
   // update party
   // TODO UPDATE Grab the party elements off the DOM and update them (you will want to at least display each party members health)
