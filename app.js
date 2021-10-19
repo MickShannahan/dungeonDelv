@@ -60,13 +60,17 @@ function update(){
 }
 
 function attack(){
+  // calculating total 
   let attackPower  = 0
+  // Object iteration
   for(let key in party){
     let hero = party[key]
+    // only if alive keep attack power
     if(hero.health> 0){
       attackPower += hero.damage
     }
   }
+  // disables when x
   if(attackPower == 0){
     window.alert('your whole party is dead')
   }
@@ -75,6 +79,7 @@ function attack(){
 }
 
 function checkIfMonsterDead(){
+  // on attack check if dead... if dead do x
   if(monster.health <= 0){
     gold += monster.gold
     monster.level++
@@ -87,8 +92,11 @@ function checkIfMonsterDead(){
 }
 
 function healHero(hero){
+  // currency?? 
+  // which hero dom and button 
   if(gold > 25){
     gold -= 25
+    // dictionary access
     party[hero].health += 15
     update()
   }
@@ -97,11 +105,13 @@ function healHero(hero){
 function hurtHero(){
   for(let key in party){
     let hero = party[key]
-    hero.health -=monster.damage
+    hero.health -= monster.damage
+    // non negative numbers
     if(hero.health <= 0){
       hero.health = 0
     }
   }
+  // how do I know the game is over
   update()
 }
 
